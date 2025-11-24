@@ -753,32 +753,7 @@ body {
     }
 
     .volume-control {
-        width: 100%;
-        justify-content: center;
-        margin-top: 6px;
-        padding: 6px 10px;
-    }
-
-    .volume-icon {
-        font-size: 12px;
-    }
-
-    .volume-bar {
-        flex: 1;
-        height: 6px;
-        touch-action: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    .volume-bar::-webkit-slider-thumb {
-        width: 20px;
-        height: 20px;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    .volume-bar::-moz-range-thumb {
-        width: 20px;
-        height: 20px;
+        display: none;
     }
 
     .play-pause {
