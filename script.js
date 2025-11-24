@@ -329,7 +329,26 @@ prevBtn.addEventListener('click', playPrevious);
 nextBtn.addEventListener('click', playNext);
 
 progressBar.addEventListener('input', seekTo);
+progressBar.addEventListener('change', seekTo);
+
+// 볼륨 조절 - 모바일 호환성을 위해 input과 change 이벤트 모두 사용
 volumeBar.addEventListener('input', setVolume);
+volumeBar.addEventListener('change', setVolume);
+volumeBar.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = volumeBar.getBoundingClientRect();
+    const percent = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
+    volumeBar.value = percent;
+    setVolume({ target: volumeBar });
+}, { passive: false });
+volumeBar.addEventListener('touchend', (e) => {
+    const touch = e.changedTouches[0];
+    const rect = volumeBar.getBoundingClientRect();
+    const percent = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
+    volumeBar.value = percent;
+    setVolume({ target: volumeBar });
+});
 
 // 오디오 이벤트
 audioPlayer.addEventListener('timeupdate', updateProgress);
