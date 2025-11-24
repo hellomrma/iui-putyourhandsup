@@ -369,6 +369,31 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// 모바일 터치 이벤트 (가사 이동)
+let touchStartY = 0;
+let touchEndY = 0;
+const minSwipeDistance = 50; // 최소 스와이프 거리 (픽셀)
+
+lyricsContent.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+lyricsContent.addEventListener('touchend', (e) => {
+    touchEndY = e.changedTouches[0].clientY;
+    const swipeDistance = touchStartY - touchEndY;
+    
+    // 위로 스와이프 (touchStartY > touchEndY, 양수)
+    if (swipeDistance > minSwipeDistance) {
+        e.preventDefault();
+        moveLyricsUp();
+    }
+    // 아래로 스와이프 (touchStartY < touchEndY, 음수)
+    else if (swipeDistance < -minSwipeDistance) {
+        e.preventDefault();
+        moveLyricsDown();
+    }
+}, { passive: false });
+
 // 초기 버튼 상태
 prevBtn.disabled = true;
 nextBtn.disabled = true;

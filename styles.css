@@ -305,6 +305,17 @@ body {
     }
 }
 
+@keyframes fadeInUpActiveMobile {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .lyrics-placeholder {
     color: #666666;
     font-style: italic;
@@ -704,23 +715,7 @@ body {
     }
 
     .vinyl-container {
-        margin-bottom: 8px;
-        padding: 8px;
-    }
-
-    .vinyl-record {
-        width: 100px;
-        height: 100px;
-    }
-
-    .vinyl-center {
-        width: 24px;
-        height: 24px;
-    }
-
-    .vinyl-grooves {
-        width: 80px;
-        height: 80px;
+        display: none;
     }
 
     .track-info {
@@ -787,6 +782,8 @@ body {
         font-size: 16px;
         line-height: 1.8;
         justify-content: center;
+        overflow: visible;
+        padding: 20px 10px;
     }
 
     .lyric-line {
@@ -797,6 +794,8 @@ body {
 
     .lyric-line.active {
         font-size: 22px;
+        transform: translateY(0) scale(1) !important;
+        animation: fadeInUpActiveMobile 0.5s ease forwards;
     }
 
     .decoration-orb {
