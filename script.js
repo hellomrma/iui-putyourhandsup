@@ -334,7 +334,12 @@ progressBar.addEventListener('change', seekTo);
 // 볼륨 조절 - 모바일 호환성을 위해 input과 change 이벤트 모두 사용
 volumeBar.addEventListener('input', setVolume);
 volumeBar.addEventListener('change', setVolume);
-volumeBar.addEventListener('touchmove', (e) => {
+
+// 모바일 터치 이벤트 처리
+let isVolumeDragging = false;
+
+volumeBar.addEventListener('touchstart', (e) => {
+    isVolumeDragging = true;
     e.preventDefault();
     const touch = e.touches[0];
     const rect = volumeBar.getBoundingClientRect();
@@ -342,12 +347,29 @@ volumeBar.addEventListener('touchmove', (e) => {
     volumeBar.value = percent;
     setVolume({ target: volumeBar });
 }, { passive: false });
+
+volumeBar.addEventListener('touchmove', (e) => {
+    if (!isVolumeDragging) return;
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = volumeBar.getBoundingClientRect();
+    const percent = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
+    volumeBar.value = percent;
+    setVolume({ target: volumeBar });
+}, { passive: false });
+
 volumeBar.addEventListener('touchend', (e) => {
+    if (!isVolumeDragging) return;
+    isVolumeDragging = false;
     const touch = e.changedTouches[0];
     const rect = volumeBar.getBoundingClientRect();
     const percent = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
     volumeBar.value = percent;
     setVolume({ target: volumeBar });
+});
+
+volumeBar.addEventListener('touchcancel', () => {
+    isVolumeDragging = false;
 });
 
 // 오디오 이벤트
@@ -401,15 +423,15 @@ lyricsContent.addEventListener('touchend', (e) => {
     touchEndY = e.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
     
-    // 위로 스와이프 (touchStartY > touchEndY, 양수)
+    // 위로 스와이프 (touchStartY > touchEndY, 양수) → 아래로 이동
     if (swipeDistance > minSwipeDistance) {
         e.preventDefault();
-        moveLyricsUp();
+        moveLyricsDown();
     }
-    // 아래로 스와이프 (touchStartY < touchEndY, 음수)
+    // 아래로 스와이프 (touchStartY < touchEndY, 음수) → 위로 이동
     else if (swipeDistance < -minSwipeDistance) {
         e.preventDefault();
-        moveLyricsDown();
+        moveLyricsUp();
     }
 }, { passive: false });
 

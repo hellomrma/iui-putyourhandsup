@@ -622,6 +622,8 @@ body {
     border-radius: 2px;
     outline: none;
     cursor: pointer;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .volume-bar::-webkit-slider-thumb {
@@ -763,7 +765,20 @@ body {
 
     .volume-bar {
         flex: 1;
-        height: 3px;
+        height: 6px;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .volume-bar::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .volume-bar::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
     }
 
     .play-pause {
