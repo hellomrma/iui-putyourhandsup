@@ -232,7 +232,10 @@ function togglePlayPause() {
 function play() {
     audioPlayer.play();
     isPlaying = true;
-    playPauseBtn.textContent = '⏸';
+    const playIcon = playPauseBtn.querySelector('.play-icon');
+    const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+    if (playIcon) playIcon.style.display = 'none';
+    if (pauseIcon) pauseIcon.style.display = 'block';
     playPauseBtn.title = 'Pause';
     if (vinylRecord) {
         vinylRecord.classList.add('playing');
@@ -243,7 +246,10 @@ function play() {
 function pause() {
     audioPlayer.pause();
     isPlaying = false;
-    playPauseBtn.textContent = '▶';
+    const playIcon = playPauseBtn.querySelector('.play-icon');
+    const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+    if (playIcon) playIcon.style.display = 'block';
+    if (pauseIcon) pauseIcon.style.display = 'none';
     playPauseBtn.title = 'Play';
     if (vinylRecord) {
         vinylRecord.classList.remove('playing');

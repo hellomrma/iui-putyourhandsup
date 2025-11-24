@@ -593,6 +593,20 @@ body {
     text-align: center;
 }
 
+.play-pause svg {
+    color: #000000;
+    fill: #000000;
+}
+
+.play-pause:hover svg {
+    color: #000000;
+    fill: #000000;
+}
+
+.pause-icon {
+    display: none;
+}
+
 .play-pause:hover {
     background: #e0e0e0;
     transform: scale(1.05);
@@ -750,6 +764,16 @@ body {
         width: 32px;
         height: 32px;
         font-size: 12px;
+    }
+
+    .control-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .play-pause svg {
+        width: 18px;
+        height: 18px;
     }
 
     .volume-control {
