@@ -24,12 +24,7 @@ let currentLyricIndex = -1; // 현재 하이라이트된 가사 줄 인덱스
 
 // music 폴더의 mp3 파일 목록
 const musicFiles = [
-    "track1_재사용 만렙 컴포넌트, EJS에 심다 (feat. 김다인, 이미연, 박정인).mp3",
-    "track2_Canvas 너머 3D 웹지피유, 어디까지 가봤니 (by 오지원).mp3",
-    "track3_FPS 킬러 캔버스 성능, Pixi로 역전! (with 문유라).mp3",
-    "track4_내 최애 레이어 커마 장인의 상태관리 (Prod. 문채민).mp3",
-    "track5_JS의 진화론 타입 없는 세상은 위험해 (from 한범규).mp3",
-    "track6_'will-change'의 역설 브라우저가 더 빨라 (by 김은정).mp3"
+    "track1_Interactive Year in Review.mp3"
 ];
 
 // music 폴더에서 트랙 로드

@@ -71,18 +71,8 @@ IUI(인터랙션 컨퍼런스)를 위한 모던한 웹 음악 플레이어입니
 ├── styles.css          # CSS 스타일 및 애니메이션
 ├── script.js           # JavaScript 기능 및 로직
 ├── music/              # 음악 파일 디렉토리
-│   ├── track1_재사용 만렙 컴포넌트, EJS에 심다 (feat. 김다인, 이미연, 박정인).mp3
-│   ├── track1_재사용 만렙 컴포넌트, EJS에 심다 (feat. 김다인, 이미연, 박정인).txt
-│   ├── track2_Canvas 너머 3D 웹지피유, 어디까지 가봤니 (by 오지원).mp3
-│   ├── track2_Canvas 너머 3D 웹지피유, 어디까지 가봤니 (by 오지원).txt
-│   ├── track3_FPS 킬러 캔버스 성능, Pixi로 역전! (with 문유라).mp3
-│   ├── track3_FPS 킬러 캔버스 성능, Pixi로 역전! (with 문유라).txt
-│   ├── track4_내 최애 레이어 커마 장인의 상태관리 (Prod. 문채민).mp3
-│   ├── track4_내 최애 레이어 커마 장인의 상태관리 (Prod. 문채민).txt
-│   ├── track5_JS의 진화론 타입 없는 세상은 위험해 (from 한범규).mp3
-│   ├── track5_JS의 진화론 타입 없는 세상은 위험해 (from 한범규).txt
-│   ├── track6_'will-change'의 역설 브라우저가 더 빨라 (by 김은정).mp3
-│   └── track6_'will-change'의 역설 브라우저가 더 빨라 (by 김은정).txt
+│   ├── track1_Interactive Year in Review.mp3
+│   └── track1_Interactive Year in Review.txt
 └── README.md          # 프로젝트 문서
 ```
 
@@ -140,8 +130,7 @@ IUI(인터랙션 컨퍼런스)를 위한 모던한 웹 음악 플레이어입니
 
 ```javascript
 const musicFiles = [
-    "track1_재사용 만렙 컴포넌트, EJS에 심다 (feat. 김다인, 이미연, 박정인).mp3",
-    "track2_Canvas 너머 3D 웹지피유, 어디까지 가봤니 (by 오지원).mp3",
+    "track1_Interactive Year in Review.mp3",
     "my_song.mp3",  // 새 트랙 추가
     // 더 많은 트랙 추가...
 ];
