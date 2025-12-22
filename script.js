@@ -17,10 +17,12 @@ const vinylRecord = document.getElementById('vinylRecord');
 // 플레이리스트 데이터
 let tracks = [];
 let lyricsMap = new Map(); // 곡 이름 -> 가사 텍스트 매핑
-let lyricsLines = []; // 현재 가사의 줄 배열
+let lyricsLines = []; // 현재 가사의 줄 배열 [{ time: number, text: string }, ...]
 let currentTrackIndex = -1;
 let isPlaying = false;
 let currentLyricIndex = -1; // 현재 하이라이트된 가사 줄 인덱스
+let isManualLyricControl = false; // 수동 가사 탐색 중인지 여부
+let manualControlTimeout = null; // 수동 제어 후 자동 동기화 재개 타이머
 
 // music 폴더의 mp3 파일 목록
 const musicFiles = [
@@ -143,14 +145,43 @@ async function loadLyrics(trackName) {
     }
 }
 
+// 시간 문자열을 초로 변환 (예: "0:22" -> 22, "1:30" -> 90)
+function parseTime(timeString) {
+    const match = timeString.match(/^(\d+):(\d+)$/);
+    if (match) {
+        const minutes = parseInt(match[1], 10);
+        const seconds = parseInt(match[2], 10);
+        return minutes * 60 + seconds;
+    }
+    return null;
+}
+
 // 가사 표시
 function displayLyrics(lyricsText) {
     if (lyricsText) {
-        // 가사를 줄 단위로 분리
+        // 가사를 줄 단위로 분리하고 시간 정보 파싱
         lyricsLines = lyricsText
             .split('\n')
             .map(line => line.trim())
-            .filter(line => line.length > 0);
+            .filter(line => line.length > 0)
+            .map(line => {
+                // [mm:ss] 또는 [m:ss] 형식의 시간 정보 추출
+                const timeMatch = line.match(/^\[(\d+:\d+)\]\s*(.*)$/);
+                if (timeMatch) {
+                    const time = parseTime(timeMatch[1]);
+                    const text = timeMatch[2];
+                    return {
+                        time: time !== null ? time : -1,
+                        text: text || line
+                    };
+                } else {
+                    // 시간 정보가 없으면 -1로 설정 (시간 기반 동기화 제외)
+                    return {
+                        time: -1,
+                        text: line
+                    };
+                }
+            });
         
         // 초기 인덱스 설정 (첫 번째 줄)
         currentLyricIndex = lyricsLines.length > 0 ? 0 : -1;
@@ -183,7 +214,8 @@ function renderLyricsLines() {
         let html = '';
         for (let i = startIndex; i < endIndex; i++) {
             const isActive = i === currentLyricIndex;
-            html += `<div class="lyric-line ${isActive ? 'active' : ''}" data-index="${i}">${lyricsLines[i]}</div>`;
+            const lineText = lyricsLines[i].text || lyricsLines[i]; // 객체인 경우 text 속성 사용
+            html += `<div class="lyric-line ${isActive ? 'active' : ''}" data-index="${i}">${lineText}</div>`;
         }
         
         lyricsContent.innerHTML = html;
@@ -200,7 +232,13 @@ function moveLyricsUp() {
     if (lyricsLines.length === 0) return;
     if (currentLyricIndex > 0) {
         currentLyricIndex--;
+        isManualLyricControl = true;
         renderLyricsLines();
+        // 3초 후 자동 동기화 재개
+        clearTimeout(manualControlTimeout);
+        manualControlTimeout = setTimeout(() => {
+            isManualLyricControl = false;
+        }, 3000);
     }
 }
 
@@ -209,6 +247,33 @@ function moveLyricsDown() {
     if (lyricsLines.length === 0) return;
     if (currentLyricIndex < lyricsLines.length - 1) {
         currentLyricIndex++;
+        isManualLyricControl = true;
+        renderLyricsLines();
+        // 3초 후 자동 동기화 재개
+        clearTimeout(manualControlTimeout);
+        manualControlTimeout = setTimeout(() => {
+            isManualLyricControl = false;
+        }, 3000);
+    }
+}
+
+// 현재 재생 시간에 맞는 가사 자동 동기화
+function syncLyricsWithTime(currentTime) {
+    // 수동 제어 중이면 자동 동기화 하지 않음
+    if (isManualLyricControl) return;
+    
+    // 시간 정보가 있는 가사만 찾기
+    let targetIndex = -1;
+    for (let i = lyricsLines.length - 1; i >= 0; i--) {
+        if (lyricsLines[i].time !== -1 && lyricsLines[i].time <= currentTime) {
+            targetIndex = i;
+            break;
+        }
+    }
+    
+    // 찾은 가사가 현재 표시 중인 가사와 다르면 업데이트
+    if (targetIndex !== -1 && targetIndex !== currentLyricIndex) {
+        currentLyricIndex = targetIndex;
         renderLyricsLines();
     }
 }
@@ -278,6 +343,8 @@ function updateProgress() {
         const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
         progressBar.value = progress;
         updateTimeDisplay();
+        // 가사 자동 동기화
+        syncLyricsWithTime(audioPlayer.currentTime);
     }
 }
 

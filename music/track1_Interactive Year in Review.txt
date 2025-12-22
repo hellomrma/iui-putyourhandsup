@@ -1,45 +1,45 @@
 🎼 track 1. Interactive Year in Review
 
-🌅 Sunset Drive, 불을 켠 IUI City의 밤. 
-🎹 2025년의 데이터 스트림, 
-  미래를 향한 코드를 연주해.
+[0:18] 🌅 Sunset Drive, 불을 켠 IUI City의 밤. 
+[0:25] 🎹 2025년의 데이터 스트림, 
+[0:29] 미래를 향한 코드를 연주해.
 
-🗺️ 전략의 맵은 이미 완성됐지. 
-🛣️ 고객 확장과 기술 발전의 Highway. 
-🏎️ React Boilerplate, 우리의 V6 엔진처럼 안정적이야. 
-🎙️ AI Tool 빌드업은 High-Pass Filter, 잡음을 제거해. 
-🌃 지금부터 이 네온 시퀀스를 따라, 
- 우리의 Night Ride를 시작해.
+[0:33] 🗺️ 전략의 맵은 이미 완성됐지. 
+[0:35] 🛣️ 고객 확장과 기술 발전의 Highway. 
+[0:38] 🏎️ React Boilerplate, 우리의 V6 엔진처럼 안정적이야. 
+[0:41] 🎙️ AI Tool 빌드업은 High-Pass Filter, 잡음을 제거해. 
+[0:44] 🌃 지금부터 이 네온 시퀀스를 따라, 
+[0:46] 우리의 Night Ride를 시작해.
 
-🚦 Smooth Lane Change! 에러 없는 TypeScript의 코스. 
-🤝 안정과 신뢰가 우리의 운전 습관이야.
+[0:51] 🚦 Smooth Lane Change! 에러 없는 TypeScript의 코스. 
+[0:57] 🤝 안정과 신뢰가 우리의 운전 습관이야.
 
-📍 1팀의 Crew, 올리브영 이벤트의 마일리지. 
-📈 26-27년 계약 연장, 우리의 연비 효율을 증명했지. 
-🎮 웹젠 R2, 42dot, Fair AI까지, 막힘없는 트래픽 처리.
+[1:08] 📍 1팀의 Crew, 올리브영 이벤트의 마일리지. 
+[1:12] 📈 26-27년 계약 연장, 우리의 연비 효율을 증명했지. 
+[1:16] 🎮 웹젠 R2, 42dot, Fair AI까지, 막힘없는 트래픽 처리.
 
-🌐 2팀의 Crew, HMG 그룹의 네트워크 게이트. 
-🚘 현대차 서비스, 오픈과 운영, 속도 위반은 없어. 
-💳 HMG-Pay, 차세대 그룹웨어, 시스템은 Auto-Pilot처럼 안정적. 
-🎛️ Next.js와 Zustand, 복잡한 교차로를 통제하는 Smart Control!
+[1:20] 🌐 2팀의 Crew, HMG 그룹의 네트워크 게이트. 
+[1:22] 🚘 현대차 서비스, 오픈과 운영, 속도 위반은 없어. 
+[1:25] 💳 HMG-Pay, 차세대 그룹웨어, 시스템은 Auto-Pilot처럼 안정적. 
+[1:30] 🎛️ Next.js와 Zustand, 복잡한 교차로를 통제하는 Smart Control!
 
-🚀 Turbo Boost! 이제 WebGL의 성능을 끌어올려. 
-⛽ Component Template, 우리 실의 표준 연료. 
-🖼️ Babylon, PixiJS의 LED 패널, 3D/2D의 밤을 디자인. 
-👤 인터랙티브 아바타, three.js의 가상 드라이브를 시작했지.
+[1:35] 🚀 Turbo Boost! 이제 WebGL의 성능을 끌어올려. 
+[1:38] ⛽ Component Template, 우리 실의 표준 연료. 
+[1:40] 🖼️ Babylon, PixiJS의 LED 패널, 3D/2D의 밤을 디자인. 
+[1:43] 👤 인터랙티브 아바타, three.js의 가상 드라이브를 시작했지.
 
-🏁 3팀의 Crew, 구축 프로젝트의 베테랑 레이서. 
-⚡ 통영에코, 네이버 클라우드, 라이엇 이벤트, 다이내믹한 코스 완주. 
-🚩 내부 협업을 통해 성공적인 런칭이라는 체커 깃발을 꽂았어. 
-🧠 AI Tool 제작, PoC를 통한 엔진의 실효성 검증 완료. 
-📦 Page Speed와 메모리 관리, 경량화를 끝내고 달린다!
+[1:50] 🏁 3팀의 Crew, 구축 프로젝트의 베테랑 레이서. 
+[1:55] ⚡ 통영에코, 네이버 클라우드, 라이엇 이벤트, 다이내믹한 코스 완주. 
+[2:02] 🚩 내부 협업을 통해 성공적인 런칭이라는 체커 깃발을 꽂았어. 
+[2:10] 🧠 AI Tool 제작, PoC를 통한 엔진의 실효성 검증 완료. 
+[2:18] 📦 Page Speed와 메모리 관리, 경량화를 끝내고 달린다!
 
-✨ 이 모든 성과는 우리 IUI 실의 지치지 않는 연비. 
-🚀 2026년, 이 네온 지평선 위에서 더 빠른 속도로 함께 가. 
-이 Night Ride에 함께한 22명의 Crew, 진심으로 감사해. 
-🔥 Interactive User Interface 실, 끝없는 성장을 약속해. 
-👋 감사합니다. See You Next Time.
+[2:26] ✨ 이 모든 성과는 우리 IUI 실의 지치지 않는 연비. 
+[2:31] 🚀 2026년, 이 네온 지평선 위에서 더 빠른 속도로 함께 가. 
+[2:37] 이 Night Ride에 함께한 22명의 Crew, 진심으로 감사해. 
+[2:47] 🔥 Interactive User Interface 실, 끝없는 성장을 약속해. 
+[2:53] 👋 감사합니다. See You Next Time.
 
-진심으로 감사해. 
-🔥 Interactive User Interface 실, 끝없는 성장을 약속해. 
-👋 감사합니다. See You Next Time.
+[3:01] 진심으로 감사해. 
+[3:03] 🔥 Interactive User Interface 실, 끝없는 성장을 약속해. 
+[3:10] 👋 감사합니다. See You Next Time.
